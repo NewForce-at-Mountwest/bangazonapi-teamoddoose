@@ -51,7 +51,7 @@ CREATE TABLE Employee (
 	FirstName VARCHAR(55) NOT NULL,
 	LastName VARCHAR(55) NOT NULL,
 	DepartmentId INTEGER NOT NULL,
-	IsSuperVisor BIT NOT NULL DEFAULT(0),
+	IsSuperVisor Bit NOT NULL DEFAULT(0),
     CONSTRAINT FK_EmployeeDepartment FOREIGN KEY(DepartmentId) REFERENCES Department(Id)
 );
 
@@ -137,3 +137,32 @@ CREATE TABLE OrderProduct (
     CONSTRAINT FK_OrderProduct_Product FOREIGN KEY(ProductId) REFERENCES Product(Id),
     CONSTRAINT FK_OrderProduct_Order FOREIGN KEY(OrderId) REFERENCES [Order](Id)
 );
+
+
+--INSERT INTO Department (Name, Budget)  Values ( 'Science', 3000)
+
+--INSERT INTO Employee (FirstName, LastName, DepartmentId, IsSuperVisor)  Values ( 'Justin', 'Warden', 1, 0)
+
+--INSERT INTO Computer (PurchaseDate, DecomissionDate,Make,Manufacturer)  Values (9/5/82, 10/10/99, 'Honda', 'WillyWonka')
+
+--INSERT INTO TrainingProgram (Name, StartDate, EndDate,MaxAttendees )  Values ('ChocoMaking', 10/10/10, 10/11/10, 20)
+
+--INSERT INTO ProductType(Name)  Values ('StinkyChedder')
+
+--INSERT INTO Customer (FirstName,LastName)  Values ('Larry', 'Mongoose')
+
+
+
+--INSERT INTO ComputerEmployee ( EmployeeId,ComputerId,AssignDate,UnassignDate) Values (2,1,9/20/17, 9/25/17)
+
+--INSERT INTO EmployeeTraining (EmployeeId, TrainingProgramId) VALUES (2,1)
+
+--INSERT INTO Product ( ProductTypeId, CustomerId, Price,Title,Description,Quantity) VALUES (1,1,12.99,'Hot Pancakes','Hot and Steamy', 20)
+
+--INSERT INTO PaymentType (AcctNumber,Name, CustomerId) VALUES (300,'FUNKY LARRY',1)
+
+--INSERT INTO OrderProduct (OrderId, ProductId)  VALUES (3,1)
+
+--INSERT INTO [Order] (CustomerId, PaymentTypeId) VALUES (1,1)
+
+select * from ComputerEmployee
