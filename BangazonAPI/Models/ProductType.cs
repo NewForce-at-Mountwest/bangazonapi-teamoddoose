@@ -7,5 +7,7 @@ namespace BangazonAPI.Models
 {
 	public class Class
 	{
+		int Id { get; set; }
+		string Name { get; set; }
 	}
 }
