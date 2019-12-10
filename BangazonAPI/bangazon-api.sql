@@ -1,29 +1,29 @@
---DELETE FROM OrderProduct;
---DELETE FROM ComputerEmployee;
---DELETE FROM EmployeeTraining;
---DELETE FROM Employee;
---DELETE FROM TrainingProgram;
---DELETE FROM Computer;
---DELETE FROM Department;
---DELETE FROM [Order];
---DELETE FROM PaymentType;
---DELETE FROM Product;
---DELETE FROM ProductType;
---DELETE FROM Customer;
+DELETE FROM OrderProduct;
+DELETE FROM ComputerEmployee;
+DELETE FROM EmployeeTraining;
+DELETE FROM Employee;
+DELETE FROM TrainingProgram;
+DELETE FROM Computer;
+DELETE FROM Department;
+DELETE FROM [Order];
+DELETE FROM PaymentType;
+DELETE FROM Product;
+DELETE FROM ProductType;
+DELETE FROM Customer;
 
 
---ALTER TABLE Employee DROP CONSTRAINT [FK_EmployeeDepartment];
---ALTER TABLE ComputerEmployee DROP CONSTRAINT [FK_ComputerEmployee_Employee];
---ALTER TABLE ComputerEmployee DROP CONSTRAINT [FK_ComputerEmployee_Computer];
---ALTER TABLE EmployeeTraining DROP CONSTRAINT [FK_EmployeeTraining_Employee];
---ALTER TABLE EmployeeTraining DROP CONSTRAINT [FK_EmployeeTraining_Training];
---ALTER TABLE Product DROP CONSTRAINT [FK_Product_ProductType];
---ALTER TABLE Product DROP CONSTRAINT [FK_Product_Customer];
---ALTER TABLE PaymentType DROP CONSTRAINT [FK_PaymentType_Customer];
---ALTER TABLE [Order] DROP CONSTRAINT [FK_Order_Customer];
---ALTER TABLE [Order] DROP CONSTRAINT [FK_Order_Payment];
---ALTER TABLE OrderProduct DROP CONSTRAINT [FK_OrderProduct_Product];
---ALTER TABLE OrderProduct DROP CONSTRAINT [FK_OrderProduct_Order];
+ALTER TABLE Employee DROP CONSTRAINT [FK_EmployeeDepartment];
+ALTER TABLE ComputerEmployee DROP CONSTRAINT [FK_ComputerEmployee_Employee];
+ALTER TABLE ComputerEmployee DROP CONSTRAINT [FK_ComputerEmployee_Computer];
+ALTER TABLE EmployeeTraining DROP CONSTRAINT [FK_EmployeeTraining_Employee];
+ALTER TABLE EmployeeTraining DROP CONSTRAINT [FK_EmployeeTraining_Training];
+ALTER TABLE Product DROP CONSTRAINT [FK_Product_ProductType];
+ALTER TABLE Product DROP CONSTRAINT [FK_Product_Customer];
+ALTER TABLE PaymentType DROP CONSTRAINT [FK_PaymentType_Customer];
+ALTER TABLE [Order] DROP CONSTRAINT [FK_Order_Customer];
+ALTER TABLE [Order] DROP CONSTRAINT [FK_Order_Payment];
+ALTER TABLE OrderProduct DROP CONSTRAINT [FK_OrderProduct_Product];
+ALTER TABLE OrderProduct DROP CONSTRAINT [FK_OrderProduct_Order];
 
 
 DROP TABLE IF EXISTS OrderProduct;
@@ -139,28 +139,32 @@ CREATE TABLE OrderProduct (
 );
 
 
---INSERT INTO Department (Name, Budget)  Values ( 'Science', 3000)
+INSERT INTO Department (Name, Budget)  Values ('Science', 3000)
 
---INSERT INTO Employee (FirstName, LastName, DepartmentId, IsSuperVisor)  Values ( 'Justin', 'Warden', 1, 0)
+INSERT INTO Employee (FirstName, LastName, DepartmentId, IsSuperVisor)  Values ( 'Justin', 'Warden', 1, 0)
 
---INSERT INTO Computer (PurchaseDate, DecomissionDate,Make,Manufacturer)  Values (9/5/82, 10/10/99, 'Honda', 'WillyWonka')
+INSERT INTO Computer (PurchaseDate, DecomissionDate,Make,Manufacturer)  Values (9/5/82, 10/10/99, 'Honda', 'WillyWonka')
 
---INSERT INTO TrainingProgram (Name, StartDate, EndDate,MaxAttendees )  Values ('ChocoMaking', 10/10/10, 10/11/10, 20)
+INSERT INTO TrainingProgram (Name, StartDate, EndDate,MaxAttendees )  Values ('ChocoMaking', 10/10/10, 10/11/10, 20)
 
---INSERT INTO ProductType(Name)  Values ('StinkyChedder')
+INSERT INTO ProductType(Name)  Values ('StinkyChedder')
 
---INSERT INTO Customer (FirstName,LastName)  Values ('Larry', 'Mongoose')
+INSERT INTO Customer (FirstName,LastName)  Values ('Larry', 'Mongoose')
 
 
 
---INSERT INTO ComputerEmployee ( EmployeeId,ComputerId,AssignDate,UnassignDate) Values (2,1,9/20/17, 9/25/17)
+INSERT INTO ComputerEmployee (EmployeeId,ComputerId,AssignDate,UnassignDate) Values (1,1,9/20/17, 9/25/17)
 
---INSERT INTO EmployeeTraining (EmployeeId, TrainingProgramId) VALUES (2,1)
+INSERT INTO EmployeeTraining (EmployeeId, TrainingProgramId) VALUES (1,1)
 
---INSERT INTO Product ( ProductTypeId, CustomerId, Price,Title,Description,Quantity) VALUES (1,1,12.99,'Hot Pancakes','Hot and Steamy', 20)
+INSERT INTO Product (ProductTypeId, CustomerId, Price,Title,Description,Quantity) VALUES (1,1,12.99,'Hot Pancakes','Hot and Steamy', 2)
 
---INSERT INTO PaymentType (AcctNumber,Name, CustomerId) VALUES (300,'FUNKY LARRY',1)
+INSERT INTO PaymentType (AcctNumber,Name, CustomerId) VALUES (300,'FUNKY LARRY',1)
 
---INSERT INTO OrderProduct (OrderId, ProductId)  VALUES (3,1)
+INSERT INTO [Order] (CustomerId, PaymentTypeId) VALUES (1,1)
 
---INSERT INTO [Order] (CustomerId, PaymentTypeId) VALUES (1,1)
+INSERT INTO OrderProduct (OrderId, ProductId)  VALUES (1,1)
+
+
+
+
