@@ -31,7 +31,7 @@ namespace BangazonAPI.Controllers
 		}
 
 		[HttpGet]
-		public async Task<IActionResult> Get(int limit)
+		public async Task<IActionResult> Get()
 		{
 			using (SqlConnection conn = Connection)
 			{
@@ -40,11 +40,7 @@ namespace BangazonAPI.Controllers
 				{
 					string query = "SELECT Id, Title, ProductTypeId, CustomerId, Price, Description, Quantity FROM Product ";
 
-					if (limit != 0)
-					{
-						query = $"SELECT TOP {limit} Id, Title, ProductTypeId, CustomerId, Price, Description, Quantity FROM Product ";
-
-					}
+					
 
 					cmd.CommandText = query;
 					SqlDataReader reader = cmd.ExecuteReader();
@@ -54,11 +50,12 @@ namespace BangazonAPI.Controllers
 					{
 						Product Product = new Product
 						{
+							
 							Id = reader.GetInt32(reader.GetOrdinal("Id")),
 							Title = reader.GetString(reader.GetOrdinal("Title")),
 							ProductTypeId = reader.GetInt32(reader.GetOrdinal("ProductTypeId")),
 							CustomerId = reader.GetInt32(reader.GetOrdinal("CustomerId")),
-							Price = reader.GetDouble(reader.GetOrdinal("Price")),
+							Price = reader.GetDecimal(reader.GetOrdinal("Price")),
 							Description = reader.GetString(reader.GetOrdinal("Description")),
 							Quantity = reader.GetInt32(reader.GetOrdinal("Quantity"))
 						};
@@ -72,7 +69,7 @@ namespace BangazonAPI.Controllers
 			}
 		}
 
-		[HttpGet("{id}", Name = "GetProduct")]
+		[HttpGet("{id}", Name = "Get")]
 		public async Task<IActionResult> Get([FromRoute] int id)
 		{
 			using (SqlConnection conn = Connection)
@@ -98,7 +95,7 @@ namespace BangazonAPI.Controllers
 							Title = reader.GetString(reader.GetOrdinal("Title")),
 							ProductTypeId = reader.GetInt32(reader.GetOrdinal("ProductTypeId")),
 							CustomerId = reader.GetInt32(reader.GetOrdinal("CustomerId")),
-							Price = reader.GetDouble(reader.GetOrdinal("Price")),
+							Price = reader.GetDecimal(reader.GetOrdinal("Price")),
 							Description = reader.GetString(reader.GetOrdinal("Description")),
 							Quantity = reader.GetInt32(reader.GetOrdinal("Quantity"))
 						};
@@ -147,11 +144,11 @@ namespace BangazonAPI.Controllers
 					{
 						cmd.CommandText = @"UPDATE Product
                                             SET Title = @Title,
-											SET ProductTypeId = @ProductTypeId,
-											SET CustomerId = @CustomerId,
-											SET Price = @Price,
-											SET Description = @Description,
-											SET Quantity = @Quantity
+											 ProductTypeId = @ProductTypeId,
+											 CustomerId = @CustomerId,
+											 Price = @Price,
+											 Description = @Description,
+											 Quantity = @Quantity
                                             WHERE Id = @Id";
 						cmd.Parameters.Add(new SqlParameter("@Title", Product.Title));
 						cmd.Parameters.Add(new SqlParameter("@ProductTypeId", Product.ProductTypeId));
@@ -159,6 +156,7 @@ namespace BangazonAPI.Controllers
 						cmd.Parameters.Add(new SqlParameter("@Price", Product.Price));
 						cmd.Parameters.Add(new SqlParameter("@Description", Product.Description));
 						cmd.Parameters.Add(new SqlParameter("@Quantity", Product.Quantity));
+						cmd.Parameters.Add(new SqlParameter("@Id", id));
 
 						int rowsAffected = cmd.ExecuteNonQuery();
 						if (rowsAffected > 0)
