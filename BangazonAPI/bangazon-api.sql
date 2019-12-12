@@ -157,9 +157,9 @@ INSERT INTO ComputerEmployee (EmployeeId,ComputerId,AssignDate,UnassignDate) Val
 
 INSERT INTO EmployeeTraining (EmployeeId, TrainingProgramId) VALUES (1,1)
 
-INSERT INTO Product (ProductTypeId, CustomerId, Price, Title, Description, Quantity) VALUES (1,1,12.99,'Hot Pancakes','Hot and Steamy!', 2)
-INSERT INTO Product (ProductTypeId, CustomerId, Price, Title, Description, Quantity) VALUES (1,1,9.99, '1 Ib Box of Flour', 'Bakers favorite!', 5)
-INSERT INTO Product (ProductTypeId, CustomerId, Price, Title, Description, Quantity) VALUES (1,1,3.99, '0.5L Bottle of Olive Oil', 'Perfect for all sorts of baking!', 4)
+INSERT INTO Product (ProductTypeId, CustomerId, Price, Title, Description, Quantity) VALUES (1,1,12.99,'Hot Pancakes','Hot and Steamy!', 44)
+INSERT INTO Product (ProductTypeId, CustomerId, Price, Title, Description, Quantity) VALUES (1,1,9.99, '1 Ib Box of Flour', 'Bakers favorite!', 62)
+INSERT INTO Product (ProductTypeId, CustomerId, Price, Title, Description, Quantity) VALUES (1,1,3.99, '0.5L Bottle of Olive Oil', 'Perfect for all sorts of baking!', 85)
 
 INSERT INTO PaymentType (AcctNumber,Name, CustomerId) VALUES (300,'FUNKY LARRY',1)
 

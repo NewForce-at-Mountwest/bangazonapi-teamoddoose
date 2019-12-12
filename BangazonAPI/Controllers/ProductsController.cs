@@ -30,6 +30,8 @@ namespace BangazonAPI.Controllers
 			}
 		}
 
+//get all products
+
 		[HttpGet]
 		public async Task<IActionResult> Get()
 		{
@@ -69,7 +71,9 @@ namespace BangazonAPI.Controllers
 			}
 		}
 
-		[HttpGet("{id}", Name = "Get")]
+//get single product
+
+		[HttpGet("{id}", Name = "GetProduct")]
 		public async Task<IActionResult> Get([FromRoute] int id)
 		{
 			using (SqlConnection conn = Connection)
@@ -107,6 +111,8 @@ namespace BangazonAPI.Controllers
 			}
 		}
 
+//post function
+
 		[HttpPost]
 		public async Task<IActionResult> Post([FromBody] Product Product)
 		{
@@ -133,6 +139,9 @@ namespace BangazonAPI.Controllers
 		}
 
 		[HttpPut("{id}")]
+
+//edit function
+
 		public async Task<IActionResult> Put([FromRoute] int id, [FromBody] Product Product)
 		{
 			try
@@ -179,6 +188,8 @@ namespace BangazonAPI.Controllers
 				}
 			}
 		}
+
+//delete function
 
 		[HttpDelete("{id}")]
 		public async Task<IActionResult> Delete([FromRoute] int id)
