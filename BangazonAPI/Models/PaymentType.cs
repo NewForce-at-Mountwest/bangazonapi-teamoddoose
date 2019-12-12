@@ -7,9 +7,9 @@ namespace BangazonAPI.Models
 {
 	public class PaymentType
 	{
-		int Id { get; set; }
-		int AccountNumber { get; set; }
-		string Name { get; set; }
-		int CustomerId { get; set; }
+		public int Id { get; set; }
+		public int AccountNumber { get; set; }
+		public string Name { get; set; }
+		public int CustomerId { get; set; }
 	}
 }

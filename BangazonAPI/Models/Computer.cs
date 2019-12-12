@@ -7,11 +7,11 @@ namespace BangazonAPI.Models
 {
 	public class Computer
 	{
-		int Id { get; set; }
-		DateTime PurchaseDate { get; set; }
-		DateTime DecommisionedDate { get; set; }
-		string Make { get; set; }
-		string Manufacture { get; set; }
+		public int Id { get; set; }
+		public DateTime PurchaseDate { get; set; }
+		public DateTime DecommisionedDate { get; set; }
+		public string Make { get; set; }
+		public string Manufacture { get; set; }
 
 	}
 }
