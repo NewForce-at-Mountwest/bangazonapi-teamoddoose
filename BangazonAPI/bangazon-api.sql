@@ -151,6 +151,10 @@ INSERT INTO ProductType(Name)  Values ('StinkyChedder')
 
 INSERT INTO Customer (FirstName,LastName)  Values ('Larry', 'Mongoose')
 
+INSERT INTO Customer (FirstName,LastName)  Values ('Johnny', 'Schwinn')
+
+INSERT INTO Customer (FirstName,LastName)  Values ('Bobby', 'Trek')
+
 
 
 INSERT INTO ComputerEmployee (EmployeeId,ComputerId,AssignDate,UnassignDate) Values (1,1,9/20/17, 9/25/17)
